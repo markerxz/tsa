@@ -9,13 +9,15 @@ class InteractiveDrawingApp:
         with open(config_file, 'r') as f:
             config = json.load(f)
         self.interval = config.get('interval')
+        self.xlim = config.get('xlim')
+        self.ylim = config.get('ylim')
         self.root = root
         self.root.title("Interactive Drawing")
 
         self.fig = Figure(figsize=(5, 4), dpi=100)
         self.ax = self.fig.add_subplot(111)
-        self.ax.set_xlim(0, 1920)
-        self.ax.set_ylim(0, 1080)
+        self.ax.set_xlim(*self.xlim)
+        self.ax.set_ylim(*self.ylim)
 
         self.canvas = FigureCanvasTkAgg(self.fig, master=root)
         self.canvas_widget = self.canvas.get_tk_widget()
