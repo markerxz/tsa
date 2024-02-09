@@ -14,7 +14,7 @@ class InteractiveDrawingApp:
         self.root = root
         self.root.title("Interactive Drawing")
 
-        self.fig = Figure(figsize=(5, 4), dpi=100)
+        self.fig = Figure(figsize=(8, 8), dpi=100)
         self.ax = self.fig.add_subplot(111)
         self.ax.set_xlim(*self.xlim)
         self.ax.set_ylim(*self.ylim)
@@ -68,6 +68,7 @@ class InteractiveDrawingApp:
         self.root.destroy()
 
 if __name__ == "__main__":
+    print('HELY')
     root = tk.Tk()
     app = InteractiveDrawingApp(root)
     root.protocol("WM_DELETE_WINDOW", app.on_close)
